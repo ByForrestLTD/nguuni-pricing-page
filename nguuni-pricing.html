@@ -52,6 +52,7 @@
 </head>
 <body>
 
+    <!-- All your pricing content is here... -->
     <div class="min-h-screen">
       <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
         <div class="text-center mb-8">
@@ -288,36 +289,40 @@
       </main>
     </div>
 
-    <!-- THIS IS THE SCRIPT FOR IFRAME RESIZING -->
+    <!-- SIMPLIFIED SCRIPT TO PREVENT INFINITE LOOP -->
     <script>
+      // Debounce function to limit how often a function can run.
+      function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+          var context = this, args = arguments;
+          var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+        };
+      };
+
+      // Function to send the height to the parent page
       function sendHeight() {
         if (window.parent && window.parent.postMessage) {
           var height = document.body.scrollHeight;
           window.parent.postMessage({
-            iframeSrc: window.location.href, // To identify which iframe
+            iframeSrc: window.location.href,
             height: height
-          }, '*'); // In production, replace '*' with your Squarespace domain for security
+          }, '*');
         }
       }
 
       // Send height on initial load
       window.addEventListener('load', sendHeight);
 
-      // Send height if the window is resized (helps with responsive changes)
-      window.addEventListener('resize', sendHeight);
-      
-      // Send height if content might change (e.g., images loading, fonts applying)
-      // This is a more robust way than just 'load' for dynamic content.
-      // We use a small delay to allow rendering to settle.
-      if (typeof ResizeObserver !== 'undefined') {
-        const ro = new ResizeObserver(entries => {
-          sendHeight();
-        });
-        ro.observe(document.body);
-      } else {
-        // Fallback for older browsers
-        setInterval(sendHeight, 500); // Check height periodically
-      }
+      // Send height when the window is resized (debounced to prevent excessive firing)
+      window.addEventListener('resize', debounce(sendHeight, 150));
     </script>
 </body>
 </html>
