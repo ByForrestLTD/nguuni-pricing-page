@@ -4,19 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nguuni Nature Sanctuary Pricing</title>
-    
-    <!-- This is the Tailwind script you mentioned. It's essential for styling! -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <style>
-        /* This prevents any unwanted margins on the iframe body */
-        body { margin: 0; }
+        body { margin: 0; } /* Prevents unwanted margins on the iframe body */
+        /* Basic styling for cards if shadcn/ui specific classes aren't fully available via CDN */
+        .card {
+            border-radius: 0.5rem; /* rounded-lg */
+            border-width: 1px;
+            border-color: #e5e7eb; /* border (gray-200) */
+            background-color: #ffffff; /* bg-white */
+            color: #1f2937; /* text-gray-800 */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); /* shadow-sm */
+        }
+        .card-header {
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem; /* p-6 */
+        }
+        .card-content {
+            padding: 1.5rem; /* p-6 */
+            padding-top: 0;
+        }
+        .table-header-cell {
+            height: 3rem; /* h-12 */
+            padding-left: 1rem; /* px-4 */
+            padding-right: 1rem; /* px-4 */
+            text-align: left;
+            vertical-align: middle;
+            font-weight: 500; /* font-medium */
+            color: #6b7280; /* text-gray-500 (muted-foreground) */
+        }
+        .table-body-cell {
+            padding: 1rem; /* p-4 */
+            vertical-align: middle;
+        }
+        .table-row-border {
+             border-bottom-width: 1px;
+             border-color: #e5e7eb; /* border (gray-200) */
+        }
+        .separator {
+            height: 1px;
+            width: 100%;
+            background-color: #e5e7eb; /* bg-border (gray-200) */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
 
-    <!-- This is the pricing table content -->
-    <div class="bg-gray-50/90 min-h-screen">
+    <div class="min-h-screen"> {/* Removed bg-gray-50/90 */}
       <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
         <div class="text-center mb-8">
           <h1 class="text-4xl sm:text-5xl font-bold text-green-800 tracking-wider">NGUUNI NATURE SANCTUARY</h1>
@@ -24,85 +61,241 @@
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           <div class="lg:col-span-2 space-y-8">
+            
             <!-- Entry Fees Card -->
-            <div class="rounded-lg border bg-white text-gray-800 shadow-sm">
-              <div class="flex flex-col space-y-1.5 p-6">
+            <div class="card">
+              <div class="card-header">
                 <h3 class="font-semibold tracking-tight flex items-center gap-2 text-2xl text-green-800">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg> Entry Fees
                 </h3>
               </div>
-              <div class="p-6 pt-0">
-                <table class="w-full text-sm">
-                  <thead>
-                    <tr class="border-b">
-                      <th class="h-12 px-4 text-left align-middle font-medium text-gray-500">Category</th>
-                      <th class="h-12 px-4 text-right align-middle font-medium text-gray-500">Adult</th>
-                      <th class="h-12 px-4 text-right align-middle font-medium text-gray-500">Child (3-9yrs)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="border-b">
-                      <td class="p-4 align-middle">Resident</td>
-                      <td class="p-4 align-middle text-right">400/=</td>
-                      <td class="p-4 align-middle text-right">150/=</td>
-                    </tr>
-                    <tr>
-                      <td class="p-4 align-middle">Non-Resident</td>
-                      <td class="p-4 align-middle text-right">1,000/=</td>
-                      <td class="p-4 align-middle text-right">600/=</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="shrink-0 bg-gray-200 h-[1px] w-full my-4"></div>
+              <div class="card-content">
+                <div class="relative w-full overflow-auto">
+                  <table class="w-full caption-bottom text-sm">
+                    <thead class="[&_tr]:border-b">
+                      <tr class="table-row-border">
+                        <th class="table-header-cell">Category</th>
+                        <th class="table-header-cell text-right">Adult</th>
+                        <th class="table-header-cell text-right">Child (3-9yrs)</th>
+                      </tr>
+                    </thead>
+                    <tbody class="[&_tr:last-child]:border-0">
+                      <tr class="table-row-border">
+                        <td class="table-body-cell">Resident</td>
+                        <td class="table-body-cell text-right">400/=</td>
+                        <td class="table-body-cell text-right">150/=</td>
+                      </tr>
+                      <tr class="table-row-border"> {/* Ensure this row also has a border if it's not the last */}
+                        <td class="table-body-cell">Non-Resident</td>
+                        <td class="table-body-cell text-right">1,000/=</td>
+                        <td class="table-body-cell text-right">600/=</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="separator"></div>
                 <h4 class="font-semibold text-lg mb-2 text-gray-700">Vehicle Fees</h4>
                 <div class="flex justify-between text-gray-600"><span>Saloon Car</span> <span>Kshs. 250/=</span></div>
                 <div class="flex justify-between text-gray-600"><span>Bus / Van</span> <span>Kshs. 300/=</span></div>
                 <div class="flex justify-between text-gray-600"><span>Drop / Pick</span> <span>Kshs. 200/=</span></div>
               </div>
             </div>
-            <!-- Other Cards would go here... -->
+
+            <!-- School Tours Card -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="font-semibold tracking-tight flex items-center gap-2 text-2xl text-green-800">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M14 22v-4a2 2 0 1 0-4 0v4"></path><path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"></path><path d="M18 5v17"></path><path d="m4 6 8-4 8 4"></path><path d="M6 5v17"></path><circle cx="12" cy="9" r="2"></circle></svg> School Tours
+                </h3>
+              </div>
+              <div class="card-content">
+                <div class="relative w-full overflow-auto">
+                  <table class="w-full caption-bottom text-sm">
+                    <thead class="[&_tr]:border-b">
+                      <tr class="table-row-border">
+                        <th class="table-header-cell">Level</th>
+                        <th class="table-header-cell text-right">Student</th>
+                        <th class="table-header-cell text-right">Teacher</th>
+                      </tr>
+                    </thead>
+                    <tbody class="[&_tr:last-child]:border-0">
+                      <tr class="table-row-border">
+                        <td class="table-body-cell">Primary</td>
+                        <td class="table-body-cell text-right">150/=</td>
+                        <td class="table-body-cell text-right">350/=</td>
+                      </tr>
+                      <tr class="table-row-border">
+                        <td class="table-body-cell">Secondary</td>
+                        <td class="table-body-cell text-right">250/=</td>
+                        <td class="table-body-cell text-right">350/=</td>
+                      </tr>
+                      <tr class="table-row-border"> {/* Ensure this row also has a border if it's not the last */}
+                        <td class="table-body-cell">University</td>
+                        <td class="table-body-cell text-right">350/=</td>
+                        <td class="table-body-cell text-right">400/=</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Venue Hire Card -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="font-semibold tracking-tight flex items-center gap-2 text-2xl text-green-800">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M5.8 11.3 2 22l10.7-3.79"></path><path d="M4 3h.01"></path><path d="M22 8h.01"></path><path d="M15 2h.01"></path><path d="M22 20h.01"></path><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"></path><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11v0c-.11.7-.72 1.22-1.43 1.22H17"></path><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98v0C9.52 4.9 9 5.52 9 6.23V7"></path><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"></path></svg> Venue Hire
+                </h3>
+                <p class="text-sm text-gray-500">Reservation: 24-hr</p>
+              </div>
+              <div class="card-content space-y-4">
+                <div>
+                  <h4 class="font-semibold text-lg mb-2 text-gray-700">Sundowner + BBQ</h4>
+                  <p class="text-sm text-gray-600 mb-2">Entry + Venue Fee</p>
+                  <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-center">
+                    <div class="p-2 bg-gray-100 rounded-md"><strong>1-20 PAX</strong><br>3,500/=</div>
+                    <div class="p-2 bg-gray-100 rounded-md"><strong>21-40 PAX</strong><br>5,000/=</div>
+                    <div class="p-2 bg-gray-100 rounded-md col-span-2 md:col-span-1"><strong>41-60 PAX</strong><br>25,000/= only</div>
+                  </div>
+                </div>
+                <div class="separator"></div>
+                <div>
+                  <h4 class="font-semibold text-lg mb-2 text-gray-700">Wedding Venue</h4>
+                  <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-center">
+                    <div class="p-2 bg-gray-100 rounded-md"><strong>20 PAX</strong><br>30,000/=</div>
+                    <div class="p-2 bg-gray-100 rounded-md"><strong>40+ PAX</strong><br>60,000/=</div>
+                    <div class="p-2 bg-gray-100 rounded-md col-span-2 md:col-span-1"><strong>100 PAX</strong><br>85,000/=</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Camping Card -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="font-semibold tracking-tight flex items-center gap-2 text-2xl text-green-800">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M3.5 21 14 3"></path><path d="M20.5 21 10 3"></path><path d="M15.5 21 12 15l-3.5 6"></path><path d="M2 21h20"></path></svg> Camping
+                </h3>
+                <p class="text-sm text-gray-500">Nightly rates per person. One-time entry fee inclusive of tours.</p>
+              </div>
+              <div class="card-content">
+                <div class="relative w-full overflow-auto">
+                  <table class="w-full caption-bottom text-sm">
+                    <thead class="[&_tr]:border-b">
+                      <tr class="table-row-border">
+                        <th class="table-header-cell">Category</th>
+                        <th class="table-header-cell text-right">Resident (R)</th>
+                        <th class="table-header-cell text-right">Non-Resident (NR)</th>
+                      </tr>
+                    </thead>
+                    <tbody class="[&_tr:last-child]:border-0">
+                      <tr class="table-row-border">
+                        <td class="table-body-cell">Adults</td>
+                        <td class="table-body-cell text-right">500/=</td>
+                        <td class="table-body-cell text-right">1,000/=</td>
+                      </tr>
+                      <tr class="table-row-border">
+                        <td class="table-body-cell">Kids (3-9 yrs)</td>
+                        <td class="table-body-cell text-right">200/=</td>
+                        <td class="table-body-cell text-right">500/=</td>
+                      </tr>
+                      <tr class="table-row-border"> {/* Ensure this row also has a border if it's not the last */}
+                        <td class="table-body-cell">Schools | Clubs</td>
+                        <td class="table-body-cell text-right">300/=</td>
+                        <td class="table-body-cell text-right">500/=</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Photo/Video and Other Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="font-semibold tracking-tight flex items-center gap-2 text-xl text-green-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg> Photo | Video
+                  </h3>
+                </div>
+                <div class="card-content space-y-2">
+                  <div class="text-gray-600">
+                    <p class="font-semibold">Photography (Entry + Fee)</p>
+                    <p>5,000/= (2-hr) | Add. Hour: 1,000/=</p>
+                  </div>
+                  <div class="text-gray-600">
+                    <p class="font-semibold">Videography (Entry + Fee)</p>
+                    <p>15,000/= (2-hr)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="font-semibold tracking-tight flex items-center gap-2 text-xl text-green-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg> Other Services
+                  </h3>
+                </div>
+                <div class="card-content space-y-2">
+                  <div>
+                    <p class="font-semibold text-gray-700">Picnic Deco (by clients)</p>
+                    <p class="text-gray-600">Ground: Entry Fee + 1,500/=</p>
+                    <p class="text-gray-600">Table Set-Up: Entry Fee + 3,000/=</p>
+                  </div>
+                  <p class="text-gray-600"><span class="font-semibold">Guided Nature Tours:</span> Entry Fee + 500/=</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Giraffe Support Card -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="font-semibold tracking-tight flex items-center gap-2 text-2xl text-green-800">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg> Giraffe Support
+                </h3>
+              </div>
+              <div class="card-content">
+                <div class="flex justify-between items-center text-lg">
+                  <span class="text-gray-700">Bag of Dairy Cubes</span>
+                  <span class="font-bold text-green-700">Kshs. 4,000/=</span>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <!-- Side Column would go here... -->
+
+          <!-- Side Column -->
           <div class="space-y-8">
-            <div class="rounded-lg border bg-lime-100 border-lime-300 text-gray-800 shadow-sm">
-                <div class="flex flex-col space-y-1.5 p-6">
-                    <h3 class="text-2xl font-semibold leading-none tracking-tight text-green-800">Payment Information</h3>
+            <!-- Payment Info Card -->
+            <div class="card bg-lime-100 border-lime-300"> {/* Kept specific background */}
+              <div class="card-header">
+                <h3 class="text-2xl font-semibold leading-none tracking-tight text-green-800">Payment Information</h3>
+              </div>
+              <div class="card-content text-center space-y-4">
+                <p class="font-semibold text-gray-700">We accept CASH or M-PESA</p>
+                <div class="p-4 bg-white rounded-lg shadow-inner">
+                  <p class="text-sm text-gray-500">LIPA NA M-PESA</p>
+                  <p class="text-lg font-semibold text-green-700">Buy Goods &amp; Services</p>
+                  <p class="text-sm text-gray-500 mt-2">TILL NO:</p>
+                  <div class="flex justify-center gap-1 sm:gap-2 mt-1">
+                    <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">5</span>
+                    <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">8</span>
+                    <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">6</span>
+                    <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">2</span>
+                    <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">7</span>
+                    <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">6</span>
+                    <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">3</span>
+                  </div>
+                  <p class="mt-3 font-semibold text-green-800">BAOBAB TRUST</p>
                 </div>
-                <div class="p-6 pt-0 text-center space-y-4">
-                    <p class="font-semibold text-gray-700">We accept CASH or M-PESA</p>
-                    <div class="p-4 bg-white rounded-lg shadow-inner">
-                        <p class="text-sm text-gray-500">LIPA NA M-PESA</p>
-                        <p class="text-lg font-semibold text-green-700">Buy Goods &amp; Services</p>
-                        <p class="text-sm text-gray-500 mt-2">TILL NO:</p>
-                        <div class="flex justify-center gap-1 sm:gap-2 mt-1">
-                            <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">5</span>
-                            <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">8</span>
-                            <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">6</span>
-                            <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">2</span>
-                            <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">7</span>
-                            <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">6</span>
-                            <span class="w-10 h-12 text-3xl font-bold bg-gray-200 flex items-center justify-center rounded-md">3</span>
-                        </div>
-                        <p class="mt-3 font-semibold text-green-800">BAOBAB TRUST</p>
-                    </div>
-                    <div class="flex items-center justify-center gap-2 pt-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-green-700"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        <a href="tel:0700337068" class="text-lg font-semibold text-green-800 hover:underline">0700 337 068</a>
-                    </div>
+                <div class="flex items-center justify-center gap-2 pt-4">
+                  <svg xmlns="http://www.w3..org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-green-700"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  <a href="tel:0700337068" class="text-lg font-semibold text-green-800 hover:underline">0700 337 068</a>
                 </div>
+              </div>
             </div>
-            <!-- Gallery Card -->
-            <div class="rounded-lg border bg-white text-gray-800 shadow-sm">
-                <div class="flex flex-col space-y-1.5 p-6">
-                    <h3 class="text-2xl font-semibold leading-none tracking-tight text-green-800">Gallery</h3>
-                </div>
-                <div class="p-6 pt-0 grid grid-cols-2 gap-4">
-                    <img alt="Giraffes at the sanctuary" loading="lazy" width="400" height="300" class="rounded-lg object-cover aspect-square" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NNS_Rate%2BList_Jan.2025.jpg-ntMCezQkDAS8SYvII7ykXC9u4aEUb8.jpeg">
-                    <img alt="School tour" loading="lazy" width="400" height="300" class="rounded-lg object-cover aspect-square" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NNS_Rate%2BList_Jan.2025.jpg-ntMCezQkDAS8SYvII7ykXC9u4aEUb8.jpeg">
-                    <img alt="Ostrich" loading="lazy" width="400" height="300" class="rounded-lg object-cover aspect-square" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NNS_Rate%2BList_Jan.2025.jpg-ntMCezQkDAS8SYvII7ykXC9u4aEUb8.jpeg">
-                    <img alt="Picnic setup" loading="lazy" width="400" height="300" class="rounded-lg object-cover aspect-square" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NNS_Rate%2BList_Jan.2025.jpg-ntMCezQkDAS8SYvII7ykXC9u4aEUb8.jpeg">
-                </div>
-            </div>
+            
+            <!-- Gallery section has been removed as requested -->
+
           </div>
         </div>
       </main>
