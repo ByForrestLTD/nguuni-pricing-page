@@ -287,20 +287,37 @@
         </div>
       </main>
     </div>
+
+    <!-- THIS IS THE SCRIPT FOR IFRAME RESIZING -->
     <script>
-      // This script helps ensure the iframe resizes after all content, including images, is loaded.
-      window.addEventListener('load', function() {
+      function sendHeight() {
         if (window.parent && window.parent.postMessage) {
-          // Send a message to the parent window with the content height
-          // This is for use with more advanced iframe resizing scripts like iframe-resizer
-          // For the basic onload, this isn't strictly necessary but doesn't hurt.
           var height = document.body.scrollHeight;
           window.parent.postMessage({
-            iframeHeight: height,
-            iframeSrc: window.location.href // Optional: identify the iframe
-          }, '*'); // Be more specific with targetOrigin in production
+            iframeSrc: window.location.href, // To identify which iframe
+            height: height
+          }, '*'); // In production, replace '*' with your Squarespace domain for security
         }
-      });
+      }
+
+      // Send height on initial load
+      window.addEventListener('load', sendHeight);
+
+      // Send height if the window is resized (helps with responsive changes)
+      window.addEventListener('resize', sendHeight);
+      
+      // Send height if content might change (e.g., images loading, fonts applying)
+      // This is a more robust way than just 'load' for dynamic content.
+      // We use a small delay to allow rendering to settle.
+      if (typeof ResizeObserver !== 'undefined') {
+        const ro = new ResizeObserver(entries => {
+          sendHeight();
+        });
+        ro.observe(document.body);
+      } else {
+        // Fallback for older browsers
+        setInterval(sendHeight, 500); // Check height periodically
+      }
     </script>
 </body>
 </html>
