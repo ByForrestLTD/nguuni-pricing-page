@@ -6,46 +6,45 @@
     <title>Nguuni Nature Sanctuary Pricing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { margin: 0; } /* Prevents unwanted margins on the iframe body */
-        /* Basic styling for cards if shadcn/ui specific classes aren't fully available via CDN */
+        body { margin: 0; } 
         .card {
-            border-radius: 0.5rem; /* rounded-lg */
+            border-radius: 0.5rem; 
             border-width: 1px;
-            border-color: #e5e7eb; /* border (gray-200) */
-            background-color: #ffffff; /* bg-white */
-            color: #1f2937; /* text-gray-800 */
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); /* shadow-sm */
+            border-color: #e5e7eb; 
+            background-color: #ffffff; 
+            color: #1f2937; 
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); 
         }
         .card-header {
             display: flex;
             flex-direction: column;
-            padding: 1.5rem; /* p-6 */
+            padding: 1.5rem; 
         }
         .card-content {
-            padding: 1.5rem; /* p-6 */
+            padding: 1.5rem; 
             padding-top: 0;
         }
         .table-header-cell {
-            height: 3rem; /* h-12 */
-            padding-left: 1rem; /* px-4 */
-            padding-right: 1rem; /* px-4 */
+            height: 3rem; 
+            padding-left: 1rem; 
+            padding-right: 1rem; 
             text-align: left;
             vertical-align: middle;
-            font-weight: 500; /* font-medium */
-            color: #6b7280; /* text-gray-500 (muted-foreground) */
+            font-weight: 500; 
+            color: #6b7280; 
         }
         .table-body-cell {
-            padding: 1rem; /* p-4 */
+            padding: 1rem; 
             vertical-align: middle;
         }
         .table-row-border {
              border-bottom-width: 1px;
-             border-color: #e5e7eb; /* border (gray-200) */
+             border-color: #e5e7eb; 
         }
         .separator {
             height: 1px;
             width: 100%;
-            background-color: #e5e7eb; /* bg-border (gray-200) */
+            background-color: #e5e7eb; 
             margin-top: 1rem;
             margin-bottom: 1rem;
         }
@@ -53,7 +52,7 @@
 </head>
 <body>
 
-    <div class="min-h-screen"> /* Removed bg-gray-50 90 */
+    <div class="min-h-screen">
       <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
         <div class="text-center mb-8">
           <h1 class="text-4xl sm:text-5xl font-bold text-green-800 tracking-wider">NGUUNI NATURE SANCTUARY</h1>
@@ -62,7 +61,6 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           <div class="lg:col-span-2 space-y-8">
             
-            <!-- Entry Fees Card -->
             <div class="card">
               <div class="card-header">
                 <h3 class="font-semibold tracking-tight flex items-center gap-2 text-2xl text-green-800">
@@ -85,7 +83,7 @@
                         <td class="table-body-cell text-right">400/=</td>
                         <td class="table-body-cell text-right">150/=</td>
                       </tr>
-                      <tr class="table-row-border"> {/* Ensure this row also has a border if it's not the last */}
+                      <tr class="table-row-border">
                         <td class="table-body-cell">Non-Resident</td>
                         <td class="table-body-cell text-right">1,000/=</td>
                         <td class="table-body-cell text-right">600/=</td>
@@ -101,7 +99,6 @@
               </div>
             </div>
 
-            <!-- School Tours Card -->
             <div class="card">
               <div class="card-header">
                 <h3 class="font-semibold tracking-tight flex items-center gap-2 text-2xl text-green-800">
@@ -129,7 +126,7 @@
                         <td class="table-body-cell text-right">250/=</td>
                         <td class="table-body-cell text-right">350/=</td>
                       </tr>
-                      <tr class="table-row-border"> {/* Ensure this row also has a border if it's not the last */}
+                      <tr class="table-row-border">
                         <td class="table-body-cell">University</td>
                         <td class="table-body-cell text-right">350/=</td>
                         <td class="table-body-cell text-right">400/=</td>
@@ -140,7 +137,6 @@
               </div>
             </div>
 
-            <!-- Venue Hire Card -->
             <div class="card">
               <div class="card-header">
                 <h3 class="font-semibold tracking-tight flex items-center gap-2 text-2xl text-green-800">
@@ -170,7 +166,6 @@
               </div>
             </div>
 
-            <!-- Camping Card -->
             <div class="card">
               <div class="card-header">
                 <h3 class="font-semibold tracking-tight flex items-center gap-2 text-2xl text-green-800">
@@ -199,7 +194,7 @@
                         <td class="table-body-cell text-right">200/=</td>
                         <td class="table-body-cell text-right">500/=</td>
                       </tr>
-                      <tr class="table-row-border"> {/* Ensure this row also has a border if it's not the last */}
+                      <tr class="table-row-border">
                         <td class="table-body-cell">Schools | Clubs</td>
                         <td class="table-body-cell text-right">300/=</td>
                         <td class="table-body-cell text-right">500/=</td>
@@ -210,7 +205,6 @@
               </div>
             </div>
 
-            <!-- Photo/Video and Other Services Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div class="card">
                 <div class="card-header">
@@ -246,7 +240,6 @@
               </div>
             </div>
 
-            <!-- Giraffe Support Card -->
             <div class="card">
               <div class="card-header">
                 <h3 class="font-semibold tracking-tight flex items-center gap-2 text-2xl text-green-800">
@@ -260,13 +253,10 @@
                 </div>
               </div>
             </div>
-
           </div>
 
-          <!-- Side Column -->
           <div class="space-y-8">
-            <!-- Payment Info Card -->
-            <div class="card bg-lime-100 border-lime-300"> {/* Kept specific background */}
+            <div class="card bg-lime-100 border-lime-300">
               <div class="card-header">
                 <h3 class="text-2xl font-semibold leading-none tracking-tight text-green-800">Payment Information</h3>
               </div>
@@ -288,18 +278,29 @@
                   <p class="mt-3 font-semibold text-green-800">BAOBAB TRUST</p>
                 </div>
                 <div class="flex items-center justify-center gap-2 pt-4">
-                  <svg xmlns="http://www.w3..org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-green-700"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-green-700"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                   <a href="tel:0700337068" class="text-lg font-semibold text-green-800 hover:underline">0700 337 068</a>
                 </div>
               </div>
             </div>
-            
-            <!-- Gallery section has been removed as requested -->
-
           </div>
         </div>
       </main>
     </div>
-
+    <script>
+      // This script helps ensure the iframe resizes after all content, including images, is loaded.
+      window.addEventListener('load', function() {
+        if (window.parent && window.parent.postMessage) {
+          // Send a message to the parent window with the content height
+          // This is for use with more advanced iframe resizing scripts like iframe-resizer
+          // For the basic onload, this isn't strictly necessary but doesn't hurt.
+          var height = document.body.scrollHeight;
+          window.parent.postMessage({
+            iframeHeight: height,
+            iframeSrc: window.location.href // Optional: identify the iframe
+          }, '*'); // Be more specific with targetOrigin in production
+        }
+      });
+    </script>
 </body>
 </html>
